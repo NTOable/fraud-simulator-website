@@ -2,177 +2,71 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aware.com | Home</title>
+<title>Aware.com</title>
 
-<link rel="stylesheet" href="index.css">
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
 
+/* container */
+.splash {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+/* big title */
+.splash h1 {
+  font-size: 70px;
+  margin-bottom: 20px;
+}
+
+/* button */
+.enter-btn {
+  opacity: 0;
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background: #1a73e8;
+  color: white;
+  cursor: pointer;
+  animation: fadeIn 2s 2s forwards; /* appears later */
+}
+
+/* fade animation */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+</style>
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
-  <div class="logo">Aware</div>
-  <div class="nav-links">
-    <a href="#">Home</a>
-    <a href="#">Services</a>
-    <a href="#">Rewards</a>
-    <a href="#">Support</a>
-  </div>
-</div>
+<div class="splash">
+  <h1>Aware.com</h1>
+  <p>Loading secure environment...</p>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Exclusive Rewards Program</h1>
-  <p>You've been selected for a limited promotional offer.</p>
-  <!-- FAKE BUTTON -->
-  <button class="cta-button" onclick="startBomb()">
-    Claim Your Reward
+  <!-- goes to your current homepage -->
+  <button class="enter-btn" onclick="enterSite()">
+    Proceed to Home
   </button>
-</section>
-
-<!-- CONTENT -->
-
-<!-- <p> We are a highly sought out investment company! </p> -->
-
-<div class="container">
-  <div class="cards">
-    <div class="card">
-      <h3>Premium Access</h3>
-      <p>Unlock exclusive benefits and member-only features.</p>
-    </div>
-
-    <div class="card">
-      <h3>Secure Platform</h3>
-      <p>Advanced protection and trusted services.</p>
-    </div>
-
-    <div class="card">
-      <h3>Instant Rewards</h3>
-      <p>Receive special offers instantly.</p>
-    </div>
-
-    <div class="card">
-      <h3>Cybersecurity</h3>
-      <p>Receive special offers instantly.</p>
-    </div>
-
-    <div class="card">
-      <h3>Be Productive</h3>
-      <p>Receive special offers instantly.</p>
-    </div>
-
-    <div class="card">
-      <h3>Subscription Benefits</h3>
-      <p>Receive special offers instantly.</p>
-    </div>
-  </div>
 </div>
-
-<!-- CHAT BUTTON -->
-<div id="chatButton" onclick="toggleChat()">💬</div>
-<!-- CHAT WINDOW -->
-<div id="chatWindow">
-  <div class="chat-header">
-    Secure Support
-    <span onclick="toggleChat()">✕</span>
-  </div>
-  <div id="chatMessages"></div>
-  <div class="chat-input">
-    <input type="text" placeholder="Type a message...">
-    <button>Send</button>
-  </div>
-</div>
-
-<footer>
-  © 2026 | Abelardo T. Pascual IV | CIIT 
-</footer>
 
 <script>
-
-let bombInterval;
-
-function startBomb() {
-  bombInterval = setInterval(createPopup, 500);
+function enterSite() {
+  window.location.href = "home.html"; // rename your current index.html to home.html
 }
-
-function createPopup() {
-  const popup = document.createElement("div");
-  popup.className = "popup";
-
-  popup.style.top = Math.random() * window.innerHeight + "px";
-  popup.style.left = Math.random() * window.innerWidth + "px";
-
-  popup.innerHTML = `
-    <div class="popup-header">⚠ Security Alert</div>
-    <img src="https://picsum.photos/220/160?random=${Math.random()}">
-    <button class="close-btn">Close</button>
-  `;
-
-  popup.querySelector(".close-btn").onclick = () => popup.remove();
-  document.body.appendChild(popup);
-}
-
-function toggleChat() {
-  const chat = document.getElementById("chatWindow");
-  chat.style.display = chat.style.display === "flex" ? "none" : "flex";
-}
-
-/* fake incoming messages */
-function fakeMessage(text, isLink = false) {
-  const container = document.getElementById("chatMessages");
-
-  const msg = document.createElement("div");
-  msg.className = "message bot";
-
-  if (isLink) {
-    const link = document.createElement("a");
-    link.href = "#";
-    link.textContent = text;
-    link.style.color = "#1a73e8";
-    link.style.cursor = "pointer";
-// add actual website
-    link.onclick = () => {
-      requestLocationAndRedirect("https://www.facebook.com/photo/?fbid=26181099341490083&set=a.161626950530678");
-    };
-
-    msg.appendChild(link);
-  } else {
-    msg.textContent = text;
-  }
-
-  container.appendChild(msg);
-  container.scrollTop = container.scrollHeight;
-}
-
-function requestLocationAndRedirect(url) {
-
-  // triggers browser permission prompt
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        console.log("Location allowed:", position.coords);
-        window.location.href = url;
-      },
-      (error) => {
-        console.log("Location denied or failed:", error);
-        window.location.href = url;
-      }
-    );
-  } else {
-    // fallback if browser doesn't support geolocation
-    window.location.href = url;
-  }
-}
-
-/* show automatic messages when opened */
-document.getElementById("chatButton").addEventListener("click", () => {
-  setTimeout(() => fakeMessage("Hello! Your device may be at risk."), 800);
-  setTimeout(() => fakeMessage("Click here to secure your account."), 2500);
-  setTimeout(() => fakeMessage("Protect Your Device", true), 3600);
-});
-
 </script>
+
 </body>
 </html>
