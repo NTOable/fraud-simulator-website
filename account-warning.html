@@ -7,52 +7,6 @@
 
 <body>
 
-<div class="container">
-
-<h2>⚠ Urgent Security Warning</h2>
-
-<p>Suspicious activity detected on your account.</p>
-
-<p>Your account will be locked in:</p>
-
-<h1 id="timer">30</h1>
-
-<button onclick="verify()">Verify Account</button>
-
-</div>
-
-<script>
-
-let time = 30;
-
-setInterval(()=>{
-time--;
-document.getElementById("timer").innerText = time;
-
-if(time<=0){
-alert("Simulation: Attackers use urgency to panic victims.");
-window.location.href="education.html";
-}
-
-},1000);
-
-function verify(){
-alert("⚠ Simulation: Urgent warnings are often scams.");
-window.location.href="education.html";
-}
-
-</script>
-
-</body>
-</html><!DOCTYPE html>
-<html>
-<head>
-<title>Security Alert</title>
-<link rel="stylesheet" href="index.css">
-</head>
-
-<body>
-
 <div class="navbar">
   <div class="logo">Aware</div>
   <div class="nav-links">
