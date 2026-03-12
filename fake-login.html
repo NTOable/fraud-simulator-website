@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Aware | Login</title>
+<link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+<div class="navbar">
+  <div class="logo">Aware</div>
+  <div class="nav-links">
+    <a href="home.html">Home</a>
+  </div>
+</div>
+
+<div class="container">
+<h2>Login Required</h2>
+<p>Your session expired. Please login to continue.</p>
+
+<form onsubmit="phishAlert(event)">
+<input type="text" placeholder="Email" required>
+<input type="password" placeholder="Password" required>
+
+<button type="submit">Login</button>
+</form>
+
+</div>
+
+<script>
+function phishAlert(e){
+e.preventDefault();
+
+alert("⚠ Simulation: This was a phishing login page.\nNever enter credentials on suspicious sites.");
+
+window.location.href = "education.html";
+}
+</script>
+
+<footer>
+  © 2026 | Cybersecurity Awareness Training
+</footer>
+
+</body>
+</html>

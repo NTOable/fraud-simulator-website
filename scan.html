@@ -9,8 +9,15 @@
 <body>
 
 <div class="container">
-  <h1>Scanning Your Device...</h1>
-  <p>Please wait while we verify your connection.</p>
+  <h2>⚠ Malware Scanner Simulation</h2>
+  <p>Your device is being "scanned"...</p>
+
+  <h3>Pop-ups are flooding your screen:</h3>
+  <p>This simulates what happens when you click suspicious links. Attackers use fake security tools to distribute malware.</p>
+  
+  <button onclick="stopAttack()" style="margin-top: 20px; padding: 12px 20px; background: #ff3b3b; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
+    Stop Simulation & Learn
+  </button>
 </div>
 
 <!-- reuse your chat UI -->
@@ -31,9 +38,28 @@
 <script src="attack.js"></script>
 
 <script>
+let isRunning = true;
+
 /* automatically start your existing behaviors */
 setTimeout(startBomb, 1500);
 setTimeout(toggleChat, 2500);
+
+function toggleChat() {
+  const chat = document.getElementById("chatWindow");
+  chat.style.display = chat.style.display === "flex" ? "none" : "flex";
+}
+
+function stopAttack() {
+  isRunning = false;
+  clearInterval(bombInterval);
+  
+  // Remove all popups
+  document.querySelectorAll(".popup").forEach(popup => popup.remove());
+  
+  alert("⚠ Simulation: Fake security scan tools are malware delivery systems.\nThey flood your screen with pop-ups and install harmful software.");
+  
+  window.location.href = "education.html";
+}
 </script>
 
 </body>
