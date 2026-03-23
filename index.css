@@ -525,4 +525,132 @@
   }
 }
 
-  /* ADDED FROM TES PROJECT */
+ /* ---------- FRAUD IMPACT SCREEN ---------- */
+
+#impactScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(255, 0, 0, 0.85);
+  display: none;
+
+  z-index: 20000;
+
+  /* initial invisible */
+  opacity: 0;
+}
+
+/* flash effect */
+.impact-active {
+  animation: hitFlash 0.4s ease-out forwards,
+             fadeToDark 2.5s 0.4s forwards;
+}
+
+/* quick red flash */
+@keyframes hitFlash {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/* slow fade to darker */
+@keyframes fadeToDark {
+  from { opacity: 0.7; }
+  to {
+    opacity: 1;
+    background: rgba(120, 0, 0, 1);
+  }
+}
+/* ---------- EDUCATION PAGE ---------- */
+
+.education-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+.education-container h1 {
+  color: #c62828;
+}
+
+.education-container h2 {
+  margin-top: 30px;
+  color: #1a73e8;
+}
+
+.education-container ul {
+  margin-left: 20px;
+}
+
+.education-container button {
+  margin-top: 30px;
+  padding: 15px 25px;
+  border: none;
+  background: #1a73e8;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#impactOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(255, 0, 0, 0.85); /* flashing red */
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+  z-index: 20000;
+}
+
+#impactOverlay.show {
+  display: flex;
+  animation: flashRed 0.4s ease-out forwards;
+}
+
+.overlay-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards 0.3s; /* starts after flash */
+}
+
+.overlay-box h1 {
+  margin-bottom: 15px;
+}
+
+.overlay-box button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  background: #1a73e8;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* animations */
+@keyframes flashRed {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}

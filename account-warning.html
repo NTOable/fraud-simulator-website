@@ -7,6 +7,18 @@
 
 <body>
 
+<!-- RED FLASH LAYER -->
+<div id="impactScreen"></div>
+
+<!-- OVERLAY WITH BUTTON -->
+<div id="impactOverlay">
+  <div class="overlay-box">
+    <h1 id="fraudTypeTitle">⚠ Fraud Detected!</h1>
+    <p id="fraudExplanation"></p>
+    <button id="stopSimulationBtn">Stop Simulation</button>
+  </div>
+</div>  
+
 <div class="navbar">
   <div class="logo">Aware</div>
   <div class="nav-links">
@@ -32,20 +44,26 @@
 
 let time = 30;
 
-setInterval(()=>{
-time--;
-document.getElementById("timer").innerText = time;
+let timerInterval = setInterval(()=>{
+  time--;
+  document.getElementById("timer").innerText = time;
 
-if(time<=0){
-alert("Simulation: Attackers use urgency to panic victims.");
-window.location.href="education.html";
-}
+  if(time <= 0){
+    clearInterval(timerInterval);
+
+    triggerImpactRedirect(
+      "Urgent Account Warning",
+      "Attackers use urgency and fear to pressure users into acting quickly without thinking."
+    );
+  }
 
 },1000);
 
 function verify(){
-alert("⚠ Simulation: Urgent warnings are often scams.");
-window.location.href="education.html";
+  triggerImpactRedirect(
+    "Urgent Account Warning",
+    "This was a simulated scareware scenario. Attackers create urgency to manipulate users."
+  );
 }
 
 </script>
@@ -53,6 +71,8 @@ window.location.href="education.html";
 <footer>
   © 2026 | Cybersecurity Awareness Training
 </footer>
+
+<script src="attack.js"></script>
 
 </body>
 </html>

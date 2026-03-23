@@ -8,6 +8,18 @@
 
 <body>
 
+  <!-- RED FLASH -->
+<div id="impactScreen"></div>
+
+<!-- OVERLAY -->
+<div id="impactOverlay">
+  <div class="overlay-box">
+    <h1 id="fraudTypeTitle">⚠ Fraud Detected!</h1>
+    <p id="fraudExplanation"></p>
+    <button id="stopSimulationBtn">Stop Simulation</button>
+  </div>
+</div>
+
 <div class="container">
   <h2>⚠ Malware Scanner Simulation</h2>
   <p>Your device is being "scanned"...</p>
@@ -15,13 +27,13 @@
   <h3>Pop-ups are flooding your screen:</h3>
   <p>This simulates what happens when you click suspicious links. Attackers use fake security tools to distribute malware.</p>
   
-  <button onclick="stopAttack()" style="margin-top: 20px; padding: 12px 20px; background: #ff3b3b; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
+  <!-- <button onclick="stopAttack()" style="margin-top: 20px; padding: 12px 20px; background: #ff3b3b; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
     Stop Simulation & Learn
-  </button>
+  </button> -->
 </div>
 
 <!-- reuse your chat UI -->
-<div id="chatButton" onclick="toggleChat()">💬</div>
+<!-- <div id="chatButton" onclick="toggleChat()">💬</div>
 
 <div id="chatWindow">
   <div class="chat-header">
@@ -33,33 +45,53 @@
     <input type="text">
     <button>Send</button>
   </div>
-</div>
+</div> -->
 
 <script src="attack.js"></script>
 
 <script>
-let isRunning = true;
+setTimeout(() => {
+
+  let timer = 8;
+
+  let countdown = setInterval(() => {
+    timer--;
+
+    if (timer <= 0) {
+      clearInterval(countdown);
+
+      triggerImpactRedirect(
+        "Ad-Bomb Pop-ups",
+        "You experienced an ad-bomb attack. Multiple pop-ups are used to overwhelm users and create panic."
+      );
+    }
+
+  }, 1000);
+
+}, 1500); // matches when ad bomb starts
 
 /* automatically start your existing behaviors */
 setTimeout(startBomb, 1500);
-setTimeout(toggleChat, 2500);
+// setTimeout(toggleChat, 2500);
 
-function toggleChat() {
-  const chat = document.getElementById("chatWindow");
-  chat.style.display = chat.style.display === "flex" ? "none" : "flex";
-}
+// function toggleChat() {
+//   const chat = document.getElementById("chatWindow");
+//   chat.style.display = chat.style.display === "flex" ? "none" : "flex";
+// }
 
-function stopAttack() {
-  isRunning = false;
-  clearInterval(bombInterval);
-  
-  // Remove all popups
-  document.querySelectorAll(".popup").forEach(popup => popup.remove());
-  
-  alert("⚠ Simulation: Fake security scan tools are malware delivery systems.\nThey flood your screen with pop-ups and install harmful software.");
-  
-  window.location.href = "education.html";
-}
+// function stopAttack() {
+//   isRunning = false;
+//   clearInterval(bombInterval);
+
+//   // remove all popups
+//   document.querySelectorAll(".popup").forEach(popup => popup.remove());
+
+//   // show result immediately
+//   triggerImpactRedirect(
+//     "Ad-Bomb Pop-ups",
+//     "You experienced an ad-bomb attack. Multiple pop-ups are used to overwhelm users and create panic."
+//   );
+// }
 </script>
 
 </body>

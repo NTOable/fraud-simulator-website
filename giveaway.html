@@ -7,6 +7,18 @@
 
 <body>
 
+  <!-- RED FLASH LAYER -->
+<div id="impactScreen"></div>
+
+<!-- OVERLAY WITH BUTTON -->
+<div id="impactOverlay">
+  <div class="overlay-box">
+    <h1 id="fraudTypeTitle">⚠ Fraud Detected!</h1>
+    <p id="fraudExplanation"></p>
+    <button id="stopSimulationBtn">Stop Simulation</button>
+  </div>
+</div>
+
 <div class="navbar">
   <div class="logo">Aware</div>
   <div class="nav-links">
@@ -27,16 +39,32 @@
 </div>
 
 <script>
+// alert("⚠ Simulation: This is a giveaway scam.\nScammers use fake prizes to collect personal information.");
+// window.location.href = "education.html";
+// triggerImpactRedirect();
 function giveawayReveal(){
-alert("⚠ Simulation: This is a giveaway scam.\nScammers use fake prizes to collect personal information.");
-
-window.location.href = "education.html";
+  triggerImpactRedirect(
+    "Giveaway Scam",
+    "This was a giveaway scam. Scammers promise rewards to trick users into giving personal or financial information."
+  );
 }
+// function triggerImpactRedirect() {
+//   const screen = document.getElementById("impactScreen");
+
+//   screen.style.display = "block";
+//   screen.classList.add("impact-active");
+
+//   setTimeout(() => {
+//     window.location.href = "education.html";
+//   }, 2800); // matches animation timing
+// }
 </script>
 
 <footer>
   © 2026 | Cybersecurity Awareness Training
 </footer>
+
+<script src="attack.js"></script>
 
 </body>
 </html>

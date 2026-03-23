@@ -7,6 +7,18 @@
 
 <body>
 
+  <!-- RED FLASH LAYER -->
+<div id="impactScreen"></div>
+
+<!-- OVERLAY WITH BUTTON -->
+<div id="impactOverlay">
+  <div class="overlay-box">
+    <h1 id="fraudTypeTitle">⚠ Fraud Detected!</h1>
+    <p id="fraudExplanation"></p>
+    <button id="stopSimulationBtn">Stop Simulation</button>
+  </div>
+</div>
+
 <div class="navbar">
   <div class="logo">Aware</div>
   <div class="nav-links">
@@ -28,18 +40,21 @@
 </div>
 
 <script>
-function phishAlert(e){
-e.preventDefault();
+document.querySelector("form").onsubmit = function(e){
+  e.preventDefault();
 
-alert("⚠ Simulation: This was a phishing login page.\nNever enter credentials on suspicious sites.");
-
-window.location.href = "education.html";
+  triggerImpactRedirect(
+    "Phishing Login",
+    "This was a fake login page. Attackers create identical login forms to steal usernames and passwords."
+  );
 }
 </script>
 
 <footer>
   © 2026 | Cybersecurity Awareness Training
 </footer>
+
+<script src="attack.js"></script>
 
 </body>
 </html>

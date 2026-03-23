@@ -20,3 +20,26 @@ function createPopup() {
   popup.querySelector(".close-btn").onclick = () => popup.remove();
   document.body.appendChild(popup);
 }
+
+function triggerImpactRedirect(fraudType, explanation) {
+  const screen = document.getElementById("impactScreen");
+  const overlay = document.getElementById("impactOverlay");
+
+  // SHOW RED FLASH
+  screen.style.display = "block";
+  screen.classList.add("impact-active");
+
+  // show overlay after flash
+  setTimeout(() => {
+    if (overlay) {
+      overlay.style.display = "flex";
+
+      document.getElementById("fraudTypeTitle").textContent = `⚠ ${fraudType}`;
+      document.getElementById("fraudExplanation").textContent = explanation;
+
+      document.getElementById("stopSimulationBtn").onclick = () => {
+        window.location.href = "education.html";
+      };
+    }
+  }, 2000);
+}

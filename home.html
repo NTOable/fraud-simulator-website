@@ -11,6 +11,18 @@
 </head>
 <body>
 
+  <!-- RED FLASH -->
+<div id="impactScreen"></div>
+
+<!-- OVERLAY -->
+<div id="impactOverlay">
+  <div class="overlay-box">
+    <h1 id="fraudTypeTitle">⚠ Fraud Detected!</h1>
+    <p id="fraudExplanation"></p>
+    <button id="stopSimulationBtn">Stop Simulation</button>
+  </div>
+</div>
+
 <!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">Aware</div>
@@ -302,7 +314,10 @@ function fakeMessage(text, isLink = false) {
     link.style.cursor = "pointer";
 
     link.onclick = () => {
-      requestLocationAndRedirect("education.html");
+      triggerImpactRedirect(
+    "Suspicious Link / Social Engineering",
+    "This was a malicious link sent through a chat. Attackers often use messages to trick users into clicking harmful links."
+  );
     };
 
     msg.appendChild(link);
@@ -342,5 +357,8 @@ document.getElementById("chatButton").addEventListener("click", () => {
 });
 
 </script>
+
+<script src="attack.js"></script>
+
 </body>
 </html>
