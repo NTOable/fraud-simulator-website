@@ -10,3 +10,6 @@ Recommended Online Fraud to Simulate
 3️⃣ Fake Login Page
 4️⃣ Giveaway Scam Page
 5️⃣ Urgent Account Warning
+
+032426
+Re-tweak fake-login, giveaway, and account-warning. 

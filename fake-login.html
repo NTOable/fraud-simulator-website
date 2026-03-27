@@ -27,15 +27,24 @@
 </div>
 
 <div class="container">
-<h2>Login Required</h2>
-<p>Your session expired. Please login to continue.</p>
+  <div class="page-wrapper">
+  <div class="ad-column left">
+    <!-- reuse card HTML from home -->
+  </div>
 
-<form onsubmit="phishAlert(event)">
-<input type="text" placeholder="Email" required>
-<input type="password" placeholder="Password" required>
+  <div class="login-card">
+    <h2>Register</h2>
+    <form onsubmit="phishAlert(event)">
+      <input type="text" placeholder="Username">
+      <input type="password" placeholder="Password">
+      <button type="submit">Login</button>
+    </form>
+  </div>
 
-<button type="submit">Login</button>
-</form>
+  <div class="ad-column right">
+    <!-- reuse card HTML from home -->
+  </div>
+</div>
 
 </div>
 

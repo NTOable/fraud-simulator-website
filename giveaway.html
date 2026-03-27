@@ -26,38 +26,31 @@
   </div>
 </div>
 
-<div class="container">
+<div class="page-wrapper">
+  <div class="ad-column left">
+    <!-- some fake rewards / info cards -->
+  </div>
 
-<h1>🎉 Congratulations!</h1>
+  <div class="main-card">
+    <h2>🎉 Congratulations!</h2>
+    <p>You were randomly selected to receive a reward!</p>
+    <button onclick="giveawayReveal()">Claim Reward</button>
+  </div>
 
-<p>You were randomly selected to receive a reward!</p>
-
-<p>Claim your prize within 5 minutes.</p>
-
-<button onclick="giveawayReveal()">Claim Reward</button>
-
+  <div class="ad-column right">
+    <!-- more fake reward cards -->
+  </div>
 </div>
 
 <script>
-// alert("⚠ Simulation: This is a giveaway scam.\nScammers use fake prizes to collect personal information.");
-// window.location.href = "education.html";
-// triggerImpactRedirect();
+
 function giveawayReveal(){
   triggerImpactRedirect(
     "Giveaway Scam",
     "This was a giveaway scam. Scammers promise rewards to trick users into giving personal or financial information."
   );
 }
-// function triggerImpactRedirect() {
-//   const screen = document.getElementById("impactScreen");
 
-//   screen.style.display = "block";
-//   screen.classList.add("impact-active");
-
-//   setTimeout(() => {
-//     window.location.href = "education.html";
-//   }, 2800); // matches animation timing
-// }
 </script>
 
 <footer>
