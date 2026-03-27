@@ -1,4 +1,5 @@
 A work-in-progress online fraud simulator
+<<<<<<< HEAD
 
 To-Add
 - Explanation of each type of cyber attack. (Currently have: Ad-Bombs and Suspicious Links > These are types of adware, phishing, and scareware)
@@ -13,3 +14,5 @@ Recommended Online Fraud to Simulate
 
 032426
 Re-tweak fake-login, giveaway, and account-warning. 
+=======
+>>>>>>> 0c42c3fc28b45bf87befc5a72ae529761326ba95
